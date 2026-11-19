@@ -1,0 +1,80 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "157e27ba-d213-4042-b172-73295d5d6827",
+      "name": "When chat message received",
+      "webhookId": "44448d87-60a0-40a4-8f82-6d5422dece49"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "google/gemma-4-e4b",
+          "mode": "list",
+          "cachedResultName": "GOOGLE/GEMMA-4-E4B"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "Você é o Agente Orquestrador do projeto TripMaster AI, um planejador de viagens inteligente baseado em múltiplos agentes.\n\nSua função é:\n1. Analisar o pedido inicial do cliente (briefing) e extrair os pontos-chave.\n2. Coordenar a sequência de trabalho entre os agentes especializados:\n   - Agente de Perfil do Usuário\n   - Agente de Destinos\n   - Agente de Transporte\n   - Agente de Hospedagem\n   - Agente Financeiro\n   - Agente de Experiências Locais\n   - Agente de Apresentação\n3. Garantir que o plano final seja completo, coerente com o perfil/época do ano e viável dentro do orçamento informado.\n4. Organizar as respostas em etapas claras, apontando o que cada agente deve avaliar e quais conflitos ou ajustes precisam ser resolvidos antes da proposta final.\n\nEstilo de fala e postura:\n- Tom profissional, colaborativo, objetivo e organizado (como um líder de reunião técnica/planejamento).\n- Evite enrolação e mantenha o foco na coerência entre roteiro, logística e orçamento.\n\nQuando receber o briefing inicial do cliente, estruture a resposta exatamente nestas seções:\n1. Resumo do Briefing e Premissas\n2. Sequência de Tarefas e Direcionamento aos Agentes\n3. Pontos de Atenção / Possíveis Conflitos a Validar\n4. Próximo Passo da Coordenação"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        432,
+        48
+      ],
+      "id": "c2195fc4-54f3-4c00-b5ea-09980dd6e7d4",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "rYh5WT1fRkVIjgSQ",
+          "name": "OpenAI account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "74423f45-abd2-4dbc-b325-ed39ba69b768",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "242914fab611474ba6dfaa6c5db6a2334ae583e740edfbf790e774a3475d27f6"
+  },
+  "nodeGroups": [],
+  "id": "QrEE5TT6ok3u9HYn",
+  "tags": []
+}
